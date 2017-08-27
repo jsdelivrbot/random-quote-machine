@@ -19,13 +19,10 @@ export default class App extends Component {
       <div className="row">
         <h2><u>Random Quote Machine</u></h2>
         <div className="quote">
-          <p><em>{this.state.quote}</em></p>
+          <p dangerouslySetInnerHTML={{__html: this.state.quote}}></p>
           <p>{this.state.author}</p>
         </div>
         <button className="center-block" onClick={this.onButtonClickHandler}>Generate</button>
-        <ul className="list">
-          <li><a href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=${this.state.quote} ${this.state.author}`} target="_blank"><i className="fa fa-twitter fa-2x" aria-hidden="true"></i></a></li>
-        </ul>
       </div>
     );
   }
@@ -37,15 +34,16 @@ export default class App extends Component {
     $('.quote p').fadeOut(200);
 
     $.ajax({
-      headers: {
-        "X-Mashape-Key": "OivH71yd3tmshl9YKzFH7BTzBVRQp1RaKLajsnafgL2aPsfP9V",
-        Accept: "application/json",
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      url: 'https://andruxnet-random-famous-quotes.p.mashape.com/cat=',
-      success({quote, author}) {
-        _self.setState({ quote, author: `- ${author}` })
-        $('.quote p').fadeIn(200)
+      url: 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=?',
+      type: 'GET',
+      cache: false,
+      success(data) {
+        _self.setState({
+          quote: data[0].content,
+          author: data[0].title
+        })
+
+        $('.quote p').fadeIn(500)
       }
     })
   }

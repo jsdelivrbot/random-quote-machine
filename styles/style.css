@@ -42,19 +42,3 @@ button:active {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-
-.list {
-  position: relative;
-  list-style-type: none;
-  text-align: center;
-  margin-top: 20px;
-  right: 18px;
-}
-
-.list li {
-  display: inline;
-}
-
-.list li a {
-  color: black;
-}
