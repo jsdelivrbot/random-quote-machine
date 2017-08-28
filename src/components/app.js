@@ -19,8 +19,10 @@ export default class App extends Component {
       <div className="row">
         <h2><u>Random Quote Machine</u></h2>
         <div className="quote">
-          <p dangerouslySetInnerHTML={{__html: this.state.quote}}></p>
-          <p>{this.state.author}</p>
+          <div>
+            <p dangerouslySetInnerHTML={{__html: this.state.quote}} />
+            <p>{this.state.author}</p>
+          </div>
         </div>
         <button className="center-block" onClick={this.onButtonClickHandler}>Generate</button>
       </div>
