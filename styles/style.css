@@ -1,29 +1,33 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 
 body {
   background: #29667F;
   color: white;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Amatic SC', cursive;
 }
 
 .container {
   width: 100%;
   position: absolute;
-  top: 30%;
+  top: 25%;
   left: 50%;
-  transform: translateX(-50%) translateY(-30%);
+  transform: translateX(-50%) translateY(-25%);
 }
 
-h2 { margin-bottom: 50px; }
+h1 {
+  font-size: 75px;
+  margin-bottom: 50px;
+}
 
-h2,
+h1,
 a,
 .quote {
   text-align: center;
 }
 
 .quote {
-  height: 165px;
+  font-size: 26px;
+  margin-bottom: 15px;
   display: flex;
   justify-content: center;
   align-items: center;

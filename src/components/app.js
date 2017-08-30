@@ -17,7 +17,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="row">
-        <h2><u>Random Quote Machine</u></h2>
+        <h1>Random Quote Machine</h1>
         <div className="quote">
           <div>
             <p dangerouslySetInnerHTML={{__html: this.state.quote}} />
@@ -42,7 +42,7 @@ export default class App extends Component {
       success(data) {
         _self.setState({
           quote: data[0].content,
-          author: data[0].title
+          author: `- ${data[0].title}`
         })
 
         $('.quote p').fadeIn(500)
